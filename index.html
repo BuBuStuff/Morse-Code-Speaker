@@ -25,21 +25,25 @@
 		  var audioEl = new Audio(url);
 		  audioEl.play();
 	  }
-	
+
+	function beep(url) {
+		  var audioEl = new Audio(url);
+		  audioElBeep.play();
+	  }
   let currentMorse = '';
   let clickStartTime = 0;
   let tmout = null;
 
   function downdown() {
     clickStartTime = Date.now();
-	  audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/beep.mp3");
+	  beep("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/beep.mp3");
 	  clearTimeout(tmout);
 	  tmout = null;
   }
 
   function upup() {
     const clickDuration = Date.now() - clickStartTime;
-    audioEl.pause();
+    audioElBeep.pause();
     if (clickDuration < 350) {
       currentMorse += '.';
     } else {
