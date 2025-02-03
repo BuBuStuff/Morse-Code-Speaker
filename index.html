@@ -4,13 +4,11 @@
 <div class="container">
   <button id="morseButton" style="width:100vw;height:100vh;font-size:70px;" oncontextmenu="return false;" onmousedown="downdown();" ontouchstart="downdown();" onmouseup="upup();" ontouchend="upup();"></button>
   <br>
-  <button id="translateButton">Translate</button>
   <div class="output" id="output"></div>
 </div>
 
 <script>
   const morseButton = document.getElementById('morseButton');
-  const translateButton = document.getElementById('translateButton');
   const outputDiv = document.getElementById('output');
 
   const morseCodeDict = {
