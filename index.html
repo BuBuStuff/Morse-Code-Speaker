@@ -1,0 +1,69 @@
+<html>
+<body>
+
+<div class="container">
+  <button id="morseButton" style="width:100vw;height:100vh;font-size:70px;" oncontextmenu="return false;" onmousedown="downdown();" ontouchstart="downdown();" onmouseup="upup();" ontouchend="upup();"></button>
+  <br>
+  <button id="translateButton">Translate</button>
+  <div class="output" id="output"></div>
+</div>
+
+<script>
+  const morseButton = document.getElementById('morseButton');
+  const translateButton = document.getElementById('translateButton');
+  const outputDiv = document.getElementById('output');
+
+  const morseCodeDict = {
+    '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H',
+    '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P',
+    '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X',
+    '-.--': 'Y', '--..': 'Z', '-----': '0', '.....': ' '
+  };
+
+  let currentMorse = '';
+  let clickStartTime = 0;
+  let tmout = null;
+
+  function downdown() {
+    clickStartTime = Date.now();
+	  clearTimeout(tmout);
+	  tmout = null;
+  }
+
+  function upup() {
+    const clickDuration = Date.now() - clickStartTime;
+
+    if (clickDuration < 350) {
+      currentMorse += '.';
+    } else {
+      currentMorse += '-';
+    }
+	tmout = setTimeout(translateNew, 1000);
+  }
+
+  translateButton.addEventListener('click', () => {
+translateNew();
+  });
+
+	  function audioPlay(url) {
+		  var audioEl = new Audio(url);
+		  audioEl.play();
+	  }
+	
+	  function translateNew() {
+		  const translatedLetter = morseCodeDict[currentMorse];
+    if (translatedLetter) {
+      morseButton.textContent = morseButton.innerHTML + translatedLetter;
+		if (translatedLetter === " ") {
+			audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/space.mp3");
+		} else {
+	  audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/" + translatedLetter.toLowerCase() + ".mp3");
+			}
+    } else {
+      outputDiv.textContent = outputDiv.innerHTML + '{ERROR: INVALID KEY}';
+    }
+    currentMorse = '';
+	  }
+</script>
+</body>
+</html>
