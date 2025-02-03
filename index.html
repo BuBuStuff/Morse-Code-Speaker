@@ -26,8 +26,8 @@
 		  audioEl.play();
 	  }
 
-	function beep(url) {
-		  var audioElBeep = new Audio(url);
+	function beep(urle) {
+		  var audioElBeep = new Audio(urle);
 		  audioElBeep.play();
 	  }
   let currentMorse = '';
@@ -44,6 +44,7 @@
   function upup() {
     const clickDuration = Date.now() - clickStartTime;
     audioElBeep.pause();
+    
     if (clickDuration < 350) {
       currentMorse += '.';
     } else {
