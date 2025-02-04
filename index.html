@@ -28,6 +28,12 @@
 		  audioElBeep = new Audio(urle);
 		  audioElBeep.play();
 	  }
+
+	function stopBeep() {
+		if (!audioElBeep.paused) {
+			audioElBeep.pause();
+		}
+	}
   let currentMorse = '';
   let clickStartTime = 0;
   let tmout = null;
@@ -41,8 +47,8 @@
 
   function upup() {
     const clickDuration = Date.now() - clickStartTime;
-    audioElBeep.pause();
-    
+    	
+setTimeout(stopBeep, 100)    
     if (clickDuration < 350) {
       currentMorse += '.';
     } else {
