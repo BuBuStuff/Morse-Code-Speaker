@@ -28,12 +28,6 @@
 		  audioElBeep = new Audio(urle);
 		  audioElBeep.play();
 	  }
-
-	function stopBeep() {
-		if (!audioElBeep.paused) {
-			audioElBeep.pause();
-		}
-	}
   let currentMorse = '';
   let clickStartTime = 0;
   let tmout = null;
@@ -47,8 +41,8 @@
 
   function upup() {
     const clickDuration = Date.now() - clickStartTime;
-    	
-setTimeout(stopBeep, 100)    
+    audioElBeep.pause();
+    
     if (clickDuration < 300) {
       currentMorse += '.';
     } else {
@@ -69,7 +63,7 @@ translateNew();
 		if (translatedLetter === " ") {
 			audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/space.mp3");
 		} else {
-			if (translatedLetter === "DisplayArray") {alert(JSON.stringify(morseCodeDict));} else {
+			if (translatedLetter === "DisplayArray") {alert(morseCodeDict);} else {
 	  audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/" + translatedLetter.toLowerCase() + ".mp3");}
 			}
     } else {
