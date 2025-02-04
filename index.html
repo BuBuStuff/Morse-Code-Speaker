@@ -39,10 +39,12 @@
 	  beep("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/beep.mp3");
 	  clearTimeout(tmout);
 	  tmout = null;
-	  autoUp = setTimeout(function(){if (!tmout) {upup();}}, 350);
+	  autoUp = setTimeout(function(){if (tmout == null) {upup();}}, 350);
   }
 
   function upup() {
+    clearTimeout(autoUp);
+    autoUp = null;
     const clickDuration = Date.now() - clickStartTime;
     audioElBeep.pause();
     
@@ -52,8 +54,7 @@
       currentMorse += '-';
     }
 	tmout = setTimeout(translateNew, 750);
-	clearTimeout(autoUp);
-	autoUp = null;
+
   }
 
 
