@@ -35,16 +35,18 @@
   let currentMorse = '';
   let clickStartTime = 0;
   let tmout = null;
-
+  let isKeyDownM = false;
   function downdown() {
     clickStartTime = Date.now();
 	  beep("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/beep.mp3");
 	  clearTimeout(tmout);
 	  tmout = null;
+	  isKeyDownM = true;
 	  autoUp = setTimeout(function(){if (tmout == null) {upup();}}, 450);
   }
 
   function upup() {
+    isKeyDownM = false;
     clearTimeout(autoUp);
     autoUp = null;
     const clickDuration = Date.now() - clickStartTime;
@@ -64,6 +66,8 @@
 
 	document.addEventListener("keydown", function(){downdown();console.log('keydown');});
 	document.addEventListener("keyup", function(){upup();console.log('keyup');});
+	document.addEventListener("blur", function(){if (isKeyDownM == false) {upup();console.log('keyup (blur)');}});
+
 
 
 	
