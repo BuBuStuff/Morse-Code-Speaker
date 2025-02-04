@@ -10,6 +10,7 @@
 <script>
   const morseButton = document.getElementById('morseButton');
   const outputDiv = document.getElementById('output');
+  var audioElBeep = null;
 
   const morseCodeDict = {
     '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H',
