@@ -63,7 +63,7 @@ translateNew();
 		if (translatedLetter === " ") {
 			audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/space.mp3");
 		} else {
-			if (translatedLetter === "DisplayArray") {alert(morseCodeDict);} else {
+			if (translatedLetter === "DisplayArray") {alert(JSON.stringify(morseCodeDict));} else {
 	  audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/" + translatedLetter.toLowerCase() + ".mp3");}
 			}
     } else {
