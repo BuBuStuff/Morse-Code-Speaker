@@ -39,7 +39,7 @@
 	  beep("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/beep.mp3");
 	  clearTimeout(tmout);
 	  tmout = null;
-	  autoUp = setTimeout(350, function(){if (!tmout) {upup();}});
+	  autoUp = setTimeout(function(){if (!tmout) {upup();}}, 350);
   }
 
   function upup() {
