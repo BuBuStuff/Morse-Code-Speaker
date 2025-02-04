@@ -22,11 +22,13 @@
 	  function audioPlay(url) {
 		  var audioEl = new Audio(url);
 		  audioEl.play();
+		  console.log('play');
 	  }
 
 	function beep(urle) {
 		  audioElBeep = new Audio(urle);
 		  audioElBeep.play();
+		console.log('playbeep');
 	  }
   let currentMorse = '';
   let clickStartTime = 0;
@@ -53,8 +55,8 @@
 
 
 
-	document.addEventListener("keydown", downdown);
-	document.addEventListener("keyup", upup);
+	document.addEventListener("keydown", function(){downdown();console.log('keydown');});
+	document.addEventListener("keyup", function(){upup();console.log('keyup');});
 
 
 	
