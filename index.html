@@ -65,7 +65,7 @@ translateNew();
 		} else {
 			if (translatedLetter === "DisplayArray") {alert(JSON.stringify(morseCodeDict));} else {
 	  audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/" + translatedLetter.toLowerCase() + ".mp3");
-				morseButton.innerHTML = morseButton.innerHTML.substring(0, str.length - 1);}
+				morseButton.innerHTML = morseButton.innerHTML.substring(0, morsebutton.innerHTML.length - 12);}
 			}
     } else {
       outputDiv.textContent = outputDiv.innerHTML + '{ERROR: INVALID KEY}';
