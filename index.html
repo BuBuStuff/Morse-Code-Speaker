@@ -26,9 +26,11 @@
 	  }
 
 	function beep(urle) {
+		if (audioElBeep =- null) {
 		  audioElBeep = new Audio(urle);
 		  audioElBeep.play();
 		console.log('playbeep');
+		} else {console.log('beep prevented');}
 	  }
   let currentMorse = '';
   let clickStartTime = 0;
@@ -47,6 +49,7 @@
     autoUp = null;
     const clickDuration = Date.now() - clickStartTime;
     audioElBeep.pause();
+    audioElBeep = null;
     
     if (clickDuration < 300) {
       currentMorse += '.';
