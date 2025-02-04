@@ -58,6 +58,7 @@ translateNew();
 	
 	  function translateNew() {
 		  const translatedLetter = morseCodeDict[currentMorse];
+		   morseButton.textContent = morseButton.innerHTML + translatedLetter;
     if (translatedLetter) {
 		if (translatedLetter === " ") {
 			audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/space.mp3");
@@ -66,7 +67,7 @@ translateNew();
 	  audioPlay("https://github.com/BuBuStuff/Morse-Code-Speaker/raw/refs/heads/main/media/" + translatedLetter.toLowerCase() + ".mp3");
 				// morseButton.innerHTML = morseButton.innerHTML.substring(0, morsebutton.innerHTML.length - 12);
 			}
-			} else {      morseButton.textContent = morseButton.innerHTML + translatedLetter;
+			} else {     
 }
     } else {
       outputDiv.textContent = outputDiv.innerHTML + '{ERROR: INVALID KEY}';
