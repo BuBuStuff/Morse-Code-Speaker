@@ -31,7 +31,7 @@
 		  audioElBeep = new Audio(urle);
 		  audioElBeep.play();
 		console.log('playbeep');
-		} else {console.log('beep prevented ' + audioElBeep);}
+		} else {alert('Tone blocked due to a high number of requests for beep(). This value should be null: ' + audioElBeep);}
 	  }
   let currentMorse = '';
   let clickStartTime = 0;
